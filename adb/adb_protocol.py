@@ -437,7 +437,7 @@ class AdbMessage(object):
             usb, destination=b'%s:%s' % (service, command),
             timeout_ms=timeout_ms)
         for data in connection.ReadUntilClose():
-            yield data.decode('utf8')
+            yield data.decode('utf8', 'ignore')
 
     @classmethod
     def InteractiveShellCommand(cls, conn, cmd=None, strip_cmd=True, delim=None, strip_delim=True, clean_stdout=True):
