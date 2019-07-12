@@ -432,7 +432,7 @@ class AdbMessage(object):
           The responses from the service.
         """
         if not isinstance(command, bytes):
-            command = command.encode('utf8')
+            command = command.encode('utf8', 'ignore')
         connection = cls.Open(
             usb, destination=b'%s:%s' % (service, command),
             timeout_ms=timeout_ms)
